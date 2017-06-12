@@ -20,7 +20,18 @@ const menuTemplate = [
   {
     label: 'File',
     submenu: [
-      { label: 'New Todo' }
+      { label: 'New Todo' },
+      {
+        label: 'Quit',
+        accelerator: 'CommandOrControl+Q',
+        click () {
+          app.quit()
+        }
+      }
     ]
   }
 ]
+
+if (process.platform === 'darwin') {
+  menuTemplate.unshift({})
+}
